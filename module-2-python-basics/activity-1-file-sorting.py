@@ -1,7 +1,7 @@
 """
 Module 2 — Activity: File Sorting with os and shutil
-Student: [your name]
-Date: [date]
+Student: [Salvaaodr, Adrian G.]
+Date: [9/27/2026]
 
 ============================================
 WHAT DID YOU BUILD? (explain in your own words)
@@ -14,11 +14,20 @@ sort the files? e.g. by extension, by name, by date, etc.]
 ============================================
 KEY VOCABULARY
 ============================================
-- os module:
-- shutil module:
-- file path:
-- directory:
-(add more as needed)
+- os module: A Python module that allows a program to interact
+  with files, folders, and parts of the operating system.
+- shutil module:  A Python module used for operations involving
+  files and folders, such as moving or copying files.
+- file path: The location that tells the computer where a file
+  or folder is stored.
+- directory: Another name for a folder that contains files or
+  other folders.
+- file extension: The part at the end of a filename that
+  identifies the file type, such as .jpg or .pdf.
+- os.listdir(): A function that gets the names of files and
+  folders inside a directory.
+- shutil.move(): A function that moves a file from one location
+  to another.
 
 
 ============================================
@@ -30,7 +39,40 @@ Paste the code you already wrote for this activity below.
 import os
 import shutil
 
-# --- paste your existing code here ---
+# Folder containing the files to organize
+source_folder = "module-2-python-basics/file-sorting-test"
+
+# Folders for different file types
+images_folder = os.path.join(source_folder, "Images")
+documents_folder = os.path.join(source_folder, "Documents")
+music_folder = os.path.join(source_folder, "Music")
+
+# Create the folders if they do not already exist
+os.makedirs(images_folder, exist_ok=True)
+os.makedirs(documents_folder, exist_ok=True)
+os.makedirs(music_folder, exist_ok=True)
+
+# Check every file in the source folder
+for file_name in os.listdir(source_folder):
+
+    file_path = os.path.join(source_folder, file_name)
+
+    # Skip folders
+    if os.path.isfile(file_path):
+
+        # Get the file extension
+        extension = os.path.splitext(file_name)[1].lower()
+
+        if extension in [".jpg", ".jpeg", ".png", ".gif"]:
+            shutil.move(file_path, images_folder)
+
+        elif extension in [".pdf", ".txt", ".docx"]:
+            shutil.move(file_path, documents_folder)
+
+        elif extension in [".mp3", ".wav"]:
+            shutil.move(file_path, music_folder)
+
+print("Files have been sorted!")
 
 
 """
