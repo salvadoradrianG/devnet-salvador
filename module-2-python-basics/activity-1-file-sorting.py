@@ -6,9 +6,10 @@ Date: [9/27/2026]
 ============================================
 WHAT DID YOU BUILD? (explain in your own words)
 ============================================
-[Paste your working script below first, then come back and explain
-it here: what does your script do, and what rule did you use to
-sort the files? e.g. by extension, by name, by date, etc.]
+A code that will read each file pdf, jpg, mp3 etc. after the code run it will make a folder 
+for each file. The script checks the files inside a folder and identifies whether each
+file is an image, document, or music file. It then moves the
+file to the appropriate folder. 
 
 
 ============================================
@@ -79,10 +80,13 @@ print("Files have been sorted!")
 ============================================
 A MISTAKE I MADE (or one I want to avoid)
 ============================================
-[what tripped you up while building this? e.g. a path that didn't
-exist, a file that got overwritten, something that didn't work the
-way you expected at first]
-
+One mistake I made was using the wrong path for the file-sorting-test folder. 
+I initially used "file-sorting-test" as the source folder, but my test folder was 
+actually inside the module-2-python-basics folder. Because of this, the program created another 
+file-sorting-test folder in the wrong location instead of using the folder where my files were stored.
+I fixed it by changing the path to "module-2-python-basics/file-sorting-test". 
+This taught me that the file path needs to match the actual location of the folder so Python can 
+find and organize the files correctly.
 
 ============================================
 HOW THIS CONNECTS TO SOMETHING ELSE
